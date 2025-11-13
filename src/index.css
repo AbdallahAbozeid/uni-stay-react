@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import "tailwindcss";
+@theme
+{
+  /* اللون الخلفي الرئيسي للصفحة */
+  --color-us-cream: #fdf6e3;
+  /* خلفية الشريط السفل Accent أساسي */
+  --color-us-accent: #66869f;
+  /* اللون الأساسي للأزرار */
+  --color-us-primary: #c8846c;
+  /* لون الحدود والأيقونات الخفيفة */
+  --color-us-borderLight: #d5d5d5;
+  /* لون النص الداكن */
+  --color-us-textDark: #333333;
+  /* لون النص الفاتح */
+  --color-us-textLight: #e6eef5;
+  /* لون mint الأخضر */
+  --color-us-mint: #95caac; 
+}

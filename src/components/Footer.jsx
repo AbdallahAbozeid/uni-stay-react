@@ -13,7 +13,7 @@ export default function Footer() {
             <a href="/" className="flex items-center gap-2 mb-4">
               <img
                 className="w-10 h-10"
-                src="src/assets/favicon.png"
+                src="favicon.png"
                 alt="Uni-Stay Logo"
               />
               <span className="text-2xl font-semibold text-white">

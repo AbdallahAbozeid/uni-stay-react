@@ -33,7 +33,7 @@ export default function Navbar() {
       <nav className="container flex flex-1 items-center justify-between h-full mx-auto px-4 gap-2">
         {/* Logo Section */}
         <div className="logo-section flex items-center gap-2">
-          <img src="src/assets/favicon.png" alt="Uni-Stay Logo" className="h-10" />
+          <img src="favicon.png" alt="Uni-Stay Logo" className="h-10" />
           <a href="/" className="font-bold text-2xl text-us-textLight">
             Uni-Stay
           </a>

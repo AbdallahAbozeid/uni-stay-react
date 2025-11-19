@@ -51,7 +51,7 @@ export default function Navbar() {
         <ul
           className={`${
             isOpen
-              ? "flex flex-col absolute top-16 left-0 w-full bg-us-accent shadow-md md:hidden"
+              ? `flex flex-col absolute top-16 left-0 w-full ${scrolled ? 'bg-us-accent/60 backdrop-blur-md ' :   'bg-us-accent '} shadow-md md:hidden`
               : "hidden md:flex"
           } items-center justify-center gap-4 py-2 md:py-0`}
         >

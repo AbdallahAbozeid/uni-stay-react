@@ -1,7 +1,15 @@
 import React from 'react'
-
+import HeroSection from '../components/HeroSection'
+import FeaturedProperties from '../components/FeaturedProperties'
+import BrowseCategories from '../components/BrowseCategories'
+import HowItWorks from '../components/HowItWorks'
 export default function Home() {
   return (
-    <div className='min-h-screen' >Home</div>
+  <>
+  <HeroSection />
+  <FeaturedProperties />
+  <BrowseCategories />
+  <HowItWorks/>
+  </>
   )
 }

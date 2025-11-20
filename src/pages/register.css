@@ -1,0 +1,64 @@
+
+.curve-shape {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 140px;
+  height: 100%;
+  background: radial-gradient(
+    circle at left center,
+    #e6f2ff 0%,
+    #cde8ff 45%,
+    transparent 70%
+  );
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 50;
+  filter: blur(1px);
+}
+
+
+
+.right-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  z-index: 10;
+}
+
+
+.left-panel {
+  width: 50%;
+  padding: 2rem 4rem;
+  margin-right: 50%;
+  position: relative;
+  z-index: 20;
+}
+
+
+@media (max-width: 950px) {
+  .right-panel {
+    position: relative;
+    width: 100%;
+    height: 320px;
+  }
+
+  .left-panel {
+    width: 100%;
+    margin: 0;
+    padding: 2rem 1.5rem;
+  }
+
+
+}

@@ -28,14 +28,14 @@ function App() {
       path: "/",
       element: <Layout />,
       children: [
-        // 🟢 الصفحة الأساسية Home
+        //  الصفحة الأساسية Home
         { index: true, element: <Home /> },
 
         //  صفحات تسجيل الدخول
         { path: "/login", element: <Login /> },
         { path: "/register", element: <Register /> },
 
-        // 🔵 باقي الصفحات
+        //  باقي الصفحات
         { path: "add-property", element: <AddProperty /> },
         { path: "admin-dashboard", element: <AdminDashboard /> },
         { path: "booking", element: <Booking /> },
@@ -55,7 +55,7 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return < RouterProvider router={router} />;
 }
 
 export default App;

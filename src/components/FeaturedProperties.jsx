@@ -1,16 +1,14 @@
-import React, { useState } from "react";
-import PropertyCard from "./PropertyCard";
-import { properties } from "../assets/data";
+import React from "react";
+import { propertiesArr } from "../assets/propertiesEgypt";
+import NewPropertyCard from "./NewPropertyCard";
 export default function FeaturedProperties() {
-const [favorites, setFavorites] = useState([]);
 
-  const toggleFavorite = (id) => {
-    setFavorites((prev) =>
-      prev.includes(id)
-        ? prev.filter((fav) => fav !== id)
-        : [...prev, id]
-    );
-  };
+  function getRandomFour(arr) {
+    const shuffled = [...arr].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 4);
+  }
+
+  const featuredProp = getRandomFour(propertiesArr);
 
   return (
     <div className="py-16 text-center bg-us-cream">
@@ -25,12 +23,16 @@ const [favorites, setFavorites] = useState([]);
 
       {/* Cards List */}
       <div className="flex flex-wrap justify-center gap-6 px-4">
-        {properties.map((prop) => (
-          <PropertyCard
+        {featuredProp.map((prop) => (
+          <NewPropertyCard
             key={prop.id}
-            property={prop}
-            isFavorite={favorites.includes(prop.id)}
-            toggleFavorite={toggleFavorite}
+            title={prop.title}
+            type={prop.type}
+            price={prop.price}
+            location={prop.location}
+            amenities={prop.amenities}
+            rating={prop.rating}
+            image={prop.image}
           />
         ))}
       </div>

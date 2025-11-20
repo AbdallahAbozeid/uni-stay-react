@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tailwindcss";
 @theme
 {
   /* اللون الخلفي الرئيسي للصفحة */
@@ -15,7 +14,7 @@
   /* لون النص الفاتح */
   --color-us-textLight: #e6eef5;
   /* لون mint الأخضر */
-  --color-us-mint: #95caac; 
+  --color-us-mint: #95caac;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {

@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.curve-shape {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 120px;
+  height: 100%;
+  background: radial-gradient(circle at left center, rgb(248 245 239) 60%, transparent 61%);
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 1px;
+  background: #ddd;
+  top: 50%;
+}
+.divider::before {
+  left: 0;
+}
+.divider::after {
+  right: 0;
+}
+
+@media (max-width: 850px) {
+
+  .curve-shape {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+
+  .container {
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+    box-shadow: none;
+  }
+
+
+  .right-section {
+    order: -1;
+    height: 220px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+
+
+  .right-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+
+  .login-section {
+    width: 100%;
+    padding: 40px 25px;
+    text-align: center;
+    align-items: center;
+  }
+
+
+  .login-section form {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+
+  .login-section h3 {
+    font-size: 20px;
+  }
+  .login-section p {
+    font-size: 13px;
+  }
+}

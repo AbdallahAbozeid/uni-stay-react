@@ -11,40 +11,6 @@ const COLORS = {
     inputBg: '#D5D5D5',
 };
 
-// --- Sub-Components for Organization ---
-
-const UniStayLogo = () => (
-    <a href="#Home" className="w-53">
-        <span
-            className={`border-0 rounded-md px-3 bg-us-cream text-white font-extrabold text-2xl leading-normal`}
-        >
-            U
-        </span>
-        <span className={`text-[${COLORS.logoText}] font-bold text-2xl ml-3`}>
-            <i>Uni-Stay</i>
-        </span>
-    </a>
-);
-
-const DesktopNavLinks = () => (
-    <ul
-        className="flex flex-col md:flex-row space-y-2 md:space-y-0 p-4 md:p-0 space-x-0 md:space-x-4 lg:space-x-9 font-bold text-md"
-    >
-        <li>
-            {/* Custom style for hover is handled by CSS in the original, here we use standard Tailwind plus hover:underline */}
-            <a href="#" className="block p-2 hover:underline hover:underline-offset-[5px]">Browse</a>
-        </li>
-        <li>
-            <a href="#" className="block p-2 hover:underline hover:underline-offset-[5px]">How it works</a>
-        </li>
-        <li>
-            <a href="#" className="block p-2 hover:underline hover:underline-offset-[5px]">About</a>
-        </li>
-        <li>
-            <a href="#" className="block p-2 hover:underline hover:underline-offset-[5px]">For Landlords</a>
-        </li>
-    </ul>
-);
 
 
 // --- Main Component ---
@@ -57,7 +23,7 @@ const ContactUsPage = () => {
          
             
             {/* Main Content */}
-            <main className="container mx-auto py-10 px-4 md:px-8">
+            <main className=" mx-auto py-15 px-4 md:px-8 bg-us-cream">
                 <h1 className="text-5xl text-center mb-16 text-gray-800 font-semibold">Contact us</h1>
 
                 <section className="flex flex-col md:flex-row justify-center md:space-x-20">

@@ -15,6 +15,9 @@
   --color-us-textLight: #e6eef5;
   /* لون mint الأخضر */
   --color-us-mint: #95caac;
+  /* لون خلفية النماذج */
+  --color-us-formBg: #f3efe9;
+  
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {

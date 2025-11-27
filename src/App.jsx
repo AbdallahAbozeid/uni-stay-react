@@ -17,6 +17,7 @@ import Management from "./pages/Management";
 import Profile from "./pages/Profile";
 import Owner from "./pages/Owner";
 import NotFound from "./pages/NotFound";
+import ComingSoon from "./pages/ComingSoon";
 
 // صفحات Auth
 import Register from "./pages/Register";
@@ -32,8 +33,8 @@ function App() {
         { index: true, element: <Home /> },
 
         //  صفحات تسجيل الدخول
-        { path: "/login", element: <Login /> },
-        { path: "/register", element: <Register /> },
+        { path: "login", element: <Login /> },
+        { path: "register", element: <Register /> },
 
         // 🔵 باقي الصفحات
         { path: "add-property", element: <AddProperty /> },
@@ -48,6 +49,7 @@ function App() {
         { path: "management", element: <Management /> },
         { path: "profile", element: <Profile /> },
         { path: "owner", element: <Owner /> },
+        { path: "coming-soon", element: <ComingSoon />},
 
         // 404
         { path: "*", element: <NotFound /> },

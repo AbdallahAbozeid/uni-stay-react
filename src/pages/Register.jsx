@@ -30,50 +30,59 @@ function Register() {
 
   // دالة التسجيل
   const handleRegister = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const fullName = e.target.fullName.value;
-    const email = e.target.email.value;
-    const phone = e.target.phone.value;
-    const password = e.target.password.value;
-    const confirmPassword = e.target.confirmPassword.value;
+  const fullName = e.target.fullName.value;
+  const email = e.target.email.value;
+  const phone = e.target.phone.value;
+  const role = e.target.role.value;
+  const password = e.target.password.value;
+  const confirmPassword = e.target.confirmPassword.value;
 
-    // التحقق من ملء جميع الحقول
-    if (!fullName || !email || !phone || !password || !confirmPassword) {
-      alert("Please fill in all fields!");
-      return;
-    }
+  if (!fullName || !email || !phone || !password || !confirmPassword || !role) {
+    alert("Please fill in all fields!");
+    return;
+  }
 
-    // التحقق من تطابق كلمة السر
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
+  if (password !== confirmPassword) {
+    alert("Passwords do not match!");
+    return;
+  }
 
-    // التحقق من أن الإيميل غير مسجل مسبقاً
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const emailExists = users.some((u) => u.email === email);
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const emailExists = users.some((u) => u.email === email);
 
-    if (emailExists) {
-      alert("Email already exists!");
-      return;
-    }
+  if (emailExists) {
+    alert("Email already exists!");
+    return;
+  }
 
-    // حفظ المستخدم الجديد
-    const newUser = {
-      fullName,
-      email,
-      phone,
-      password,
-    };
+  // احصلي على الصورة المعروضة
+  const avatar = document.getElementById("preview-image").src || "";
 
-    users.push(newUser);
-    localStorage.setItem("users", JSON.stringify(users));
-
-    alert("Account created successfully!");
-
-    navigate("/");
+  const newUser = {
+    fullName,
+    email,
+    phone,
+    password,
+    role,
+    avatar, // ← تخزين الصورة
   };
+
+  users.push(newUser);
+  localStorage.setItem("users", JSON.stringify(users));
+
+  // كمان نخزن المستخدم الحالي عشان صفحة Owner تستخدمه
+  localStorage.setItem("currentUser", JSON.stringify(newUser));
+
+  alert("Account created successfully!");
+
+  if (role === "student") {
+    navigate("/Owner");
+  } else if (role === "owner") {
+    navigate("/Profile");
+  }
+};
 
   return (
     <div className="min-h-screen flex main-container relative font-sans bg-white">
@@ -95,6 +104,7 @@ function Register() {
 
         {/* Form */}
         <form className="space-y-4" onSubmit={handleRegister}>
+
           {/* Profile Photo */}
           <div className="flex flex-col items-center mb-4">
             <label htmlFor="profile-photo" className="relative cursor-pointer">
@@ -152,6 +162,19 @@ function Register() {
             />
           </div>
 
+          {/* Role Selector */}
+          <div>
+            <label className="block text-sm font-medium mb-1">Select Role</label>
+            <select
+              name="role"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#c47c61]"
+            >
+              <option value="">Choose Role</option>
+              <option value="student">Student</option>
+              <option value="owner">Owner</option>
+            </select>
+          </div>
+
           {/* Password */}
           <div>
             <label className="block text-sm font-medium mb-1">Password</label>
@@ -164,9 +187,7 @@ function Register() {
 
           {/* Confirm Password */}
           <div>
-            <label className="block text-sm font-medium mb-1">
-              Confirm Password
-            </label>
+            <label className="block text-sm font-medium mb-1">Confirm Password</label>
             <input
               name="confirmPassword"
               type="password"

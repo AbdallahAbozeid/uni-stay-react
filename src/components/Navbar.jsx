@@ -22,7 +22,7 @@ export default function Navbar() {
       { name: "Browse", href: "/gallery" },
       { name: "How it works", href: "/#how-it-works" },
       { name: "For landlords", href: "/owner" },
-      { name: "Help", href: "/contact-us" },
+      { name: "Help", href: "/coming-soon" },
     ];
 
   return (

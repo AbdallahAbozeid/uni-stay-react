@@ -60,8 +60,8 @@ export default function Footer() {
                 { label: "Browse Properties", href: "/gallery" },
                 { label: "How It Works", href: "/#how-it-works" },
                 { label: "For Landlords", href: "/owner" },
-                { label: "Student Resources", href: "#" },
-                { label: "Blog", href: "/contact-us" },
+                { label: "Student Resources", href: "/coming-soon" },
+                { label: "Blog", href: "/coming-soon" },
               ].map((item) => (
                 <li key={item.label}>
                   <a
@@ -89,7 +89,7 @@ export default function Footer() {
                 "Privacy Policy",
               ].map((label) => (
                 <li key={label}>
-                  <a href="#" className="hover:text-us-textLight transition-colors">
+                  <a href={label=="Contact Us" ? `/contact-us` : "/coming-soon"} className="hover:text-us-textLight transition-colors">
                     {label}
                   </a>
                 </li>

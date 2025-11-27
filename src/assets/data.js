@@ -103,3 +103,15 @@ export const steps = [
       "Secure your accommodation with our safe booking system and get ready to start your university journey.",
   },
 ];
+export const amenityIcons = {
+  "Wi-Fi": "fa-wifi",
+  "Laundry": "fa-shirt",
+  "Kitchen": "fa-utensils",
+  "Private Bathroom": "fa-bath",
+  "Balcony": "fa-building",
+  "AC": "fa-snowflake",
+  "Security": "fa-shield-halved",
+  "Study Desk": "fa-chair",
+  "Shared Kitchen": "fa-utensils",
+  "Smart TV": "fa-tv"
+};

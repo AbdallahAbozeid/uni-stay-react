@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 
-import { Plus, CheckCircle, XCircle } from 'lucide-react'; 
+
+const Plus = (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>;
+// CheckCircle icon for success messages
+const CheckCircle = (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>;
+// XCircle icon for error messages
+const XCircle = (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>;
 
 const availableAmenities = [
   'Wi-Fi', 'Parking', 'Laundry Room', 'Gym', 'Security', 'Pool'
@@ -24,6 +29,7 @@ const AddProperty = () => {
   const handleChange = (e) => {
     const { name, value, options } = e.target;
 
+    // Handle multi-select list for amenities
     if (name === 'amenities') {
       const selectedAmenities = Array.from(options)
         .filter(option => option.selected)
@@ -39,17 +45,18 @@ const AddProperty = () => {
     setMessage('');
     setStatus(null);
 
+    // Simulate data submission (replace with your Firestore logic here)
     setTimeout(() => {
       if (propertyData.title && propertyData.rent) {
         setStatus('success');
-        setMessage('Property added successfully');
+        setMessage('Property added successfully! Your listing will be sent for review.');
         // Clear the form
         setPropertyData({
           title: '', address: '', rent: '', area: '', rooms: '', bathrooms: '', amenities: [], description: '',
         });
       } else {
         setStatus('error');
-        setMessage('An error occurred. Please fill in the Property Title and Monthly Rent Price.');
+        setMessage('An error occurred. Please fill in the "Property Title" and "Monthly Rent" fields.');
       }
     }, 1000);
   };
@@ -62,36 +69,36 @@ const AddProperty = () => {
     setMessage('');
   };
 
-  // Tailwind CSS classes
-  const inputClasses = "w-full p-2 border border-gray-250 rounded-md box-border focus:ring-blue-500 focus:border-blue-500";
-  const labelTextClasses = "block font-bold mb-1 text-gray-700";
-  const buttonPrimaryClasses = "px-8 py-2 rounded-xl font-bold border-none cursor-pointer mr-4 bg-blue-600 text-white hover:bg-blue-700 transition duration-150 shadow-lg";
+  const inputClasses = "w-full p-2 border border-[#d5d5d5] rounded-lg box-border focus:ring-[#c8846c] focus:border-[#c8846c] transition duration-150";
+  const labelTextClasses = "block font-semibold mb-1 text-[#333333]";
+  const buttonPrimaryClasses = "px-8 py-2 rounded-xl font-bold border-none cursor-pointer ml-4 bg-[#c8846c] text-white hover:bg-[#b0745b] transition duration-150 shadow-lg"; // Primary: #c8846c
   const buttonSecondaryClasses = "px-8 py-2 rounded-xl font-bold border-none cursor-pointer bg-gray-300 text-gray-800 hover:bg-gray-400 transition duration-150 shadow-md";
 
 
   return (
-    <div className="min-h-screen #fdf6e3 font-sans">
+    <div className="min-h-screen bg-[#fdf6e3] font-sans text-left">
       
       {/* Header */}
-      <div className="w-full px-4 #fdf6e3 shadow-md">
-          <header className="flex justify-between items-center py-4 border-b border-gray-100 max-w-7xl mx-auto">
+      <div className="w-full px-4 bg-[#ffffff] shadow-md">
+          <header className="flex justify-between items-center py-4 border-b border-gray-200 max-w-7xl mx-auto">
               <div className="flex items-center">
-                <span className="text-2xl font-bold text-gray-800">uni-stay</span>
+                <span className="text-2xl font-extrabold text-[#c8846c]">uni-stay</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <span className="px-4 py-2 bg-[#C8846C] text-gray-900 rounded-lg cursor-pointer hover:bg-[#C8846C] transition duration-150 font-semibold shadow-sm">Dashboard</span>
-                <span className="px-4 py-2 bg-[#C8846C] text-white rounded-lg cursor-pointer hover:bg-[#C8846C] transition duration-150 font-semibold shadow-sm">Logout</span>
+              <div className="flex items-center space-x-3 text-sm">
+                {/* Dashboard button using Accent color */}
+                <span className="px-4 py-2 bg-[#66869f] text-white rounded-lg cursor-pointer hover:bg-[#527086] transition duration-150 font-semibold shadow-sm">Dashboard</span>
+                {/* Logout button using Primary color for consistency */}
+                <span className="px-4 py-2 bg-[#c8846c] text-white rounded-lg cursor-pointer hover:bg-[#b0745b] transition duration-150 font-semibold shadow-sm">Logout</span>
               </div>
           </header>
       </div>
 
       {/* Main Content */}
-      <div className="w-full mt-10 px-4 max-w-4xl mx-auto">
+      <div className="w-full mt-10 px-4 max-w-4xl mx-auto pb-16">
           
           <div className="bg-white p-6 sm:p-8 rounded-xl shadow-2xl border border-gray-100">
-            <h2 className="text-center text-3xl font-extrabold mb-10 text-gray-800">
-              {/* تم استبدال FaPlus بأيقونة Plus */}
-              <Plus className="inline-block align-middle mr-3 text-blue-600 text-3xl" /> Add New Property
+            <h2 className="text-center text-3xl font-extrabold mb-10 text-[#333333]">
+              <Plus className="inline-block align-middle mr-3 text-[#c8846c] w-7 h-7" /> Add New Property
             </h2>
 
             <form onSubmit={handleSubmit}>
@@ -100,23 +107,23 @@ const AddProperty = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mb-6">
                   <label className="block">
                       <span className={labelTextClasses}>Property Title*</span>
-                      <input type="text" name="title" value={propertyData.title} onChange={handleChange} className={inputClasses} required />
+                      <input type="text" name="title" value={propertyData.title} onChange={handleChange} className={inputClasses} required placeholder="Example: Shared apartment near University" />
                   </label>
                   <label className="block">
                       <span className={labelTextClasses}>Detailed Address</span>
-                      <input type="text" name="address" value={propertyData.address} onChange={handleChange} className={inputClasses} />
+                      <input type="text" name="address" value={propertyData.address} onChange={handleChange} className={inputClasses} placeholder="Street, District, City" />
                   </label>
               </div>
 
               {/* 2. Rent beside Area */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mb-6">
                   <label className="block">
-                      <span className={labelTextClasses}>Monthly Rent Price (USD)*</span>
-                      <input type="number" name="rent" value={propertyData.rent} onChange={handleChange} className={inputClasses} min="1" required />
+                      <span className={labelTextClasses}>Monthly Rent (USD)*</span>
+                      <input type="number" name="rent" value={propertyData.rent} onChange={handleChange} className={inputClasses} min="1" required placeholder="Example: 500" />
                   </label>
                   <label className="block">
-                      <span className={labelTextClasses}>Area (sq. meters or sq. feet)</span>
-                      <input type="text" name="area" value={propertyData.area} onChange={handleChange} className={inputClasses} placeholder="e.g. 500 sq. ft." />
+                      <span className={labelTextClasses}>Area </span>
+                      <input type="text" name="area" value={propertyData.area} onChange={handleChange} className={inputClasses} placeholder="Example: Giza" />
                   </label>
               </div>
 
@@ -143,10 +150,10 @@ const AddProperty = () => {
                   <label className="block">
                       <span className={labelTextClasses}>Upload Property Images</span>
                       <input type="file" multiple className={`${inputClasses} h-10 pt-1.5`} />
-                      <p className="text-xs text-gray-500 mt-1">Max 5 files, 5MB each.</p>
+                      <p className="text-xs text-gray-500 mt-1">Maximum 5 files, 5MB each.</p>
                   </label>
                   <label className="block">
-                      <span className={labelTextClasses}>Available Amenities (Hold Ctrl/Cmd to select multiple)</span>
+                      <span className={labelTextClasses}>Available Amenities (Ctrl/Cmd for multi-select)</span>
                         <select
                           name="amenities"
                           multiple={true}
@@ -171,7 +178,7 @@ const AddProperty = () => {
                       onChange={handleChange}
                       rows="4"
                       className={inputClasses}
-                      placeholder="Describe the neighborhood, included utilities, or specific student features..."
+                      placeholder="Describe the neighborhood, included facilities, or specific student features..."
                     ></textarea>
                   </label>
               </div>
@@ -190,38 +197,36 @@ const AddProperty = () => {
 
             {/* Success/Error Messages */}
             {status && (
-              <div className={`mt-8 p-4 rounded-lg font-bold shadow-inner ${status === 'success' ? 'bg-green-100 border border-green-400 text-green-700' : 'bg-red-100 border border-red-400 text-red-700'}`}>
-                <p className="flex items-center">
-                  {/* تم استبدال FaCheckCircle و FaTimesCircle بأيقونات CheckCircle و XCircle */}
+              <div className={`mt-8 p-4 rounded-lg font-bold shadow-inner flex items-center ${status === 'success' 
+                ? 'bg-[#f0fff4] border border-[#95caac] text-[#1f563d]' // Using mint for success border/icon
+                : 'bg-red-100 border border-red-400 text-red-700'}`}>
                   {status === 'success' 
-                    ? <CheckCircle className="mr-2 w-5 h-5" /> 
-                    : <XCircle className="mr-2 w-5 h-5" />}
-                  {message}
-                </p>
+                    ? <CheckCircle className="ml-2 w-5 h-5 text-[#95caac]" /> 
+                    : <XCircle className="ml-2 w-5 h-5 text-red-600" />}
+                  <p>{message}</p>
               </div>
             )}
           </div>
       </div>
       
-      {/* Footer - تحسين التصميم قليلاً */}
-      <footer className="mt-16 bg-gray-800 text-white py-8 text-sm leading-relaxed w-full">
+      {/* Footer using Accent color */}
+      <footer className="mt-16 bg-[#66869f] text-[#e6eef5] py-8 text-sm leading-relaxed w-full">
           <div className="max-w-4xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
               
               {/* Column 1: Uni-Stay Info */}
               <div>
                   <h4 className="mb-3 text-base font-bold text-white">Uni-Stay</h4>
-                  <p className='text-gray-300'>Your trusted partner in finding the perfect student housing for a comfortable university life, affordable and accessible.</p>
-                  <div className="mt-4 flex space-x-3 text-gray-400">
-                    {/* Placeholder Icons - يمكنك استبدالها بأيقونات وسائل التواصل الاجتماعي */}
-                    <CheckCircle className="w-4 h-4" />
-                    <XCircle className="w-4 h-4" />
+                  <p className='text-[#e6eef5]'>Your trusted partner in finding the perfect university housing for a comfortable and affordable student life.</p>
+                  <div className="mt-4 flex space-x-3 text-[#d5d5d5]">
+                    <CheckCircle className="w-5 h-5 hover:text-white cursor-pointer" />
+                    <XCircle className="w-5 h-5 hover:text-white cursor-pointer" />
                   </div>
               </div>
               
               {/* Column 2: Quick Links */}
               <div>
                   <h4 className="mb-3 text-base font-bold text-white">Quick Links</h4>
-                  <ul className="list-none p-0 space-y-2 text-gray-300">
+                  <ul className="list-none p-0 space-y-2 text-[#e6eef5]">
                       <li className='hover:text-white cursor-pointer'>For Landlords</li>
                       <li className='hover:text-white cursor-pointer'>Student Resources</li>
                       <li className='hover:text-white cursor-pointer'>Blog</li>
@@ -231,7 +236,7 @@ const AddProperty = () => {
               {/* Column 3: Support */}
               <div>
                   <h4 className="mb-3 text-base font-bold text-white">Support</h4>
-                  <ul className="list-none p-0 space-y-2 text-gray-300">
+                  <ul className="list-none p-0 space-y-2 text-[#e6eef5]">
                       <li className='hover:text-white cursor-pointer'>Help Center</li>
                       <li className='hover:text-white cursor-pointer'>Contact Us</li>
                       <li className='hover:text-white cursor-pointer'>Safety Guidelines</li>
@@ -242,13 +247,13 @@ const AddProperty = () => {
               {/* Column 4: Contact Info */}
               <div>
                   <h4 className="mb-3 text-base font-bold text-white">Contact Info</h4>
-                  <p className='text-gray-300'>hello@uni-stay.com</p>
-                  <p className='text-gray-300'>+(123) 123-4567</p>
-                  <p className='text-gray-300'>123 Main Street, Modern District, CA 94035</p>
+                  <p className='text-[#e6eef5]'>hello@uni-stay.com</p>
+                  <p className='text-[#e6eef5]'>+(123) 123-4567</p>
+                  <p className='text-[#e6eef5]'>123 Main Street, Modern District, CA 94035</p>
               </div>
 
           </div>
-          <div className="text-center mt-8 pt-4 border-t border-gray-700 mx-auto max-w-4xl px-4 text-gray-400">
+          <div className="text-center mt-8 pt-4 border-t border-[#527086] mx-auto max-w-4xl px-4 text-[#e6eef5]">
             © 2025 uni-stay. All rights reserved.
           </div>
       </footer>

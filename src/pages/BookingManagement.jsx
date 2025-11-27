@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, ChevronDown, Calendar, Home, Users, LogOut, LayoutDashboard, Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react'; 
+//import { Search, ChevronDown, Calendar, Home, Users, LogOut, LayoutDashboard, Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react'; 
 
 const initialBookings = [
   { id: 1, studentName: 'Mona Ahmed', property: 'Modern Apartment', date: 'June 12, 2024', duration: '11 months', status: 'Pending' },
@@ -319,7 +319,7 @@ const Footer = () => {
 };
 
 
-const BookingManagement = () => { // تم تغيير اسم المكون الرئيسي
+const BookingManagement = () => {
     return (
         <div className="min-h-screen flex flex-col bg-gray-50 font-sans" dir="ltr">
             <Header />

@@ -26,6 +26,7 @@ export default function FeaturedProperties() {
         {featuredProp.map((prop) => (
           <NewPropertyCard
             key={prop.id}
+            id={prop.id}
             title={prop.title}
             type={prop.type}
             price={prop.price}

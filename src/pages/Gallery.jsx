@@ -13,22 +13,19 @@ export default function Gallery() {
   useEffect(()=>{
     const minPrice = parseInt(min)|| 0;
     const maxPrice = parseInt(max)|| Infinity;
-    setFiltered(propertiesArr.filter((p)=>{
+    const filteredProperties = propertiesArr.filter((p)=>{
       return (
       (location === '' || p.location.toLowerCase().includes(location.toLowerCase())) &&
       (type === '' || p.type === type) &&
       p.price >= minPrice &&
       p.price <= maxPrice
       )
-    }))
+    });
+    setTimeout(() => {
+      setFiltered(filteredProperties);
+    }, 0);
+  }, [location, min, max, type]);
 
-  
-  },[location,min,max,type])
-
-  useEffect(()=>{
-    console.log(filtered)
-  },[filtered])
-  
   return (
     <div className="search-page bg-us-cream py-16">
       <div className="filter container mx-auto px-4">
@@ -49,6 +46,7 @@ export default function Gallery() {
               return(
                 <NewPropertyCard 
                 key={prop.id}
+                id={prop.id}
                 title={prop.title}
                 type={prop.type}
                 price={prop.price}

@@ -1,11 +1,16 @@
 import React,{useState} from 'react'
+import { Link } from 'react-router-dom'
 import {amenityIcons} from '../assets/data'
 
-export default function PropertyCard({ title,type,price,location,amenities,rating,image}) {
+export default function PropertyCard({ id, title,type,price,location,amenities,rating,image}) {
   const[isFavorite,setIsFavorite]=useState(false);
   
   return (
+
+
+    <Link to={`/details/${id}`} className="block">
     <div className="bg-white rounded-2xl shadow-md overflow-hidden w-64 hover:shadow-xl hover:shadow-mint/60 hover:outline-8 outline-us-mint/40 transition-all duration-300 cursor-pointer">
+
       <div className="relative">
         <img
           src={image}
@@ -18,8 +23,12 @@ export default function PropertyCard({ title,type,price,location,amenities,ratin
         </div>
 
         <div
-          onClick={() => setIsFavorite(!isFavorite)}
-          className="absolute top-2 right-2 bg-us-cream opacity-80 hover:opacity-100 transition-all duration-300 rounded-lg size-7 flex items-center justify-center"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setIsFavorite(!isFavorite);
+          }}
+          className="absolute top-2 right-2 bg-us-cream opacity-80 hover:opacity-100 transition-all duration-300 rounded-lg size-7 flex items-center justify-center z-10"
         >
           <i
             className={`fa-heart cursor-pointer transition-all duration-300 ${isFavorite ? "fa-solid text-us-mint" : "fa-regular text-gray-600"}`}
@@ -60,5 +69,6 @@ export default function PropertyCard({ title,type,price,location,amenities,ratin
         </div>
       </div>
     </div>
+    </Link>
   );
 }

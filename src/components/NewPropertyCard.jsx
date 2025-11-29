@@ -5,7 +5,7 @@ export default function PropertyCard({ title,type,price,location,amenities,ratin
   const[isFavorite,setIsFavorite]=useState(false);
   
   return (
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden w-64 hover:shadow-xl hover:shadow-mint/60 transition cursor-pointer">
+    <div className="bg-white rounded-2xl shadow-md overflow-hidden w-64 hover:shadow-xl hover:shadow-mint/60 hover:outline-8 outline-us-mint/40 transition-all duration-300 cursor-pointer">
       <div className="relative">
         <img
           src={image}
@@ -22,7 +22,7 @@ export default function PropertyCard({ title,type,price,location,amenities,ratin
           className="absolute top-2 right-2 bg-us-cream opacity-80 hover:opacity-100 transition-all duration-300 rounded-lg size-7 flex items-center justify-center"
         >
           <i
-            className={`${isFavorite ? "fa-solid" : "fa-regular"} fa-heart text-us-mint cursor-pointer transition-all duration-200`}
+            className={`fa-heart cursor-pointer transition-all duration-300 ${isFavorite ? "fa-solid text-us-mint" : "fa-regular text-gray-600"}`}
           />
         </div>
       </div>

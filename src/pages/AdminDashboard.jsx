@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar"; // Navbar الخارجي
 
 const alertColorClasses = {
@@ -8,7 +8,9 @@ const alertColorClasses = {
 };
 
 export default function AdminDashboard() {
-
+  useEffect(() => {
+      document.title = "Uni-Stay | Admin Dashboard";
+    }, []);
   const [admin] = useState({
     name: "Admin Name",
     role: "Super Admin",

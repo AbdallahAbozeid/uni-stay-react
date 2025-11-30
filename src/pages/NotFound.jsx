@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function NotFound() {
+   useEffect(() => {
+        document.title = "Uni-Stay | NotFound !";
+      }, []);
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-us-cream text-us-textDark">
       <h1 className="text-6xl font-bold mb-4">404</h1>

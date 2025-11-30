@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./register.css";
 
 import bgImage from "../assets/image.png";
 
 function Register() {
+   useEffect(() => {
+        document.title = "Uni-Stay | Register";
+      }, []);
   const navigate = useNavigate();
 
   // دالة عرض الصورة بعد رفعها

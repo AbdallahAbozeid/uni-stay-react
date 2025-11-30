@@ -11,7 +11,9 @@ export default function Owner() {
   });
 
   const [previewAvatar, setPreviewAvatar] = useState(user.avatar);
-
+   useEffect(() => {
+        document.title = "Uni-Stay | Owner";
+      }, []);
 useEffect(() => {
   const storedUser = localStorage.getItem("currentUser");
   if (storedUser) {

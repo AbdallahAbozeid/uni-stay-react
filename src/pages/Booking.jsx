@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSearchParams, useNavigate, Link } from 'react-router-dom'
 import { propertiesArr } from '../assets/propertiesEgypt'
 
@@ -12,6 +12,7 @@ export default function Booking() {
     phone: '',
     specialRequests: ''
   })
+
 
   // Get booking details from URL params
   const propertyId = searchParams.get('propertyId')
@@ -64,7 +65,9 @@ export default function Booking() {
     const date = new Date(dateString)
     return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
   }
-
+  useEffect(() => {
+      document.title = "Uni-Stay | Booking";
+    }, []);
   // If no property found or missing required params
   if (!property || !university || !checkIn || !checkOut) {
     return (

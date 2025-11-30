@@ -121,7 +121,9 @@ function BookingDashboard() {
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm, filterStatus]);
-
+  useEffect(() => {
+        document.title = "Uni-Stay | Booking Management";
+      }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">

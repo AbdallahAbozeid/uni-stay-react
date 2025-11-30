@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; // مهم للتوجيه
 import "./login.css";
 
 function Login() {
+   useEffect(() => {
+        document.title = "Uni-Stay | Login";
+      }, []);
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");

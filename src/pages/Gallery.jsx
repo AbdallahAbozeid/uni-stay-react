@@ -9,7 +9,9 @@ export default function Gallery() {
   const [max, setMax] = useState('');
   const [min, setMin] = useState('');
   const [filtered,setFiltered]=useState(propertiesArr);
-
+  useEffect(() => {
+        document.title = "Uni-Stay | Gallary";
+      }, []);
   useEffect(()=>{
     const minPrice = parseInt(min)|| 0;
     const maxPrice = parseInt(max)|| Infinity;

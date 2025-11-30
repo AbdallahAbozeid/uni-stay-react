@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const LandlordDashboard = () => {
-
+  useEffect(() => {
+        document.title = "Uni-Stay | Landlord Dashboard";
+      }, []);
   return (
     <div className="bg-us-cream min-h-screen pt-9">
 

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { propertiesArr } from '../assets/propertiesEgypt'
 import { amenityIcons } from '../assets/data'
@@ -13,7 +13,9 @@ export default function Details() {
     checkOut: '',
     guests: '1'
   })
-
+  useEffect(() => {
+        document.title = "Uni-Stay | Details";
+      }, []);
   // Refs for date inputs
   const checkInRef = useRef(null)
   const checkOutRef = useRef(null)

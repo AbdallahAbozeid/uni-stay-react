@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Tailwind Colors for consistent theming
 const COLORS = {
@@ -16,8 +16,9 @@ const COLORS = {
 // --- Main Component ---
 
 const ContactUsPage = () => {
-    
-
+     useEffect(() => {
+          document.title = "Uni-Stay | Contact Us";
+        }, []);
     return (
         <div className={`bg-[${COLORS.bg}] min-h-screen relative`}>
          

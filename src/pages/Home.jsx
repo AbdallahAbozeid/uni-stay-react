@@ -4,6 +4,9 @@ import FeaturedProperties from "../components/FeaturedProperties";
 import BrowseCategories from "../components/BrowseCategories";
 import HowItWorks from "../components/HowItWorks";
 export default function Home() {
+   useEffect(() => {
+        document.title = "Uni-Stay | Home";
+      }, []);
   useEffect(() => {
     //handles /#howitworks scrolling
     const handleHashScroll = () => {

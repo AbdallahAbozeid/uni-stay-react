@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 
 const Plus = (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>;
@@ -25,7 +25,9 @@ const AddProperty = () => {
 
   const [status, setStatus] = useState(null); 
   const [message, setMessage] = useState('');
-
+  useEffect(() => {
+    document.title = "Uni-Stay | Add Property";
+  }, []);
   const handleChange = (e) => {
     const { name, value, options } = e.target;
 

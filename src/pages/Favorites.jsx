@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFavorites } from "../context/FavoritesContext";
 import NewPropertyCard from "../components/NewPropertyCard";
 const Favorites = () => {
   // Generate 9 cards dynamically
   // const cards = Array.from({ length: 9 });
   const { favorites } = useFavorites();
+   useEffect(() => {
+        document.title = "Uni-Stay | Favorites";
+      }, []);
   return (
     <div className="bg-us-cream min-h-screen pt-9">
   

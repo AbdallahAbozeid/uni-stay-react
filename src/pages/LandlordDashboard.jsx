@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const LandlordDashboard = () => {
   useEffect(() => {
@@ -19,14 +20,14 @@ const LandlordDashboard = () => {
             Navigation
           </h2>
           <ul className="flex flex-col space-y-4 md:space-y-9 text-start ml-0 md:ml-5 mt-4 md:mt-9">
-            <a href="">
+            <Link to="/booking-Management">
               <li className="font-medium text-lg text-[#333]">
                 <span className="bg-[#C8846C] px-1.5 py-1 rounded-md mr-4">
                   <i className="fa-solid fa-building-circle-check" style={{ color: "#f7f7f7" }}></i>
                 </span>
                 Bookings
               </li>
-            </a>
+            </Link>
 
             <a href="">
               <li className="font-medium text-lg text-[#333]">
@@ -37,14 +38,14 @@ const LandlordDashboard = () => {
               </li>
             </a>
 
-            <a href="">
+            <Link to="/add-Property">
               <li className="font-medium text-lg text-[#333]">
                 <span className="bg-[#C8846C] px-1.5 py-1 rounded-md mr-4">
                   <i className="fa-solid fa-plus" style={{ color: "#ffffff" }}></i>
                 </span>
                 Add Property
               </li>
-            </a>
+            </Link>
 
             <a href="">
               <li className="font-medium text-lg text-[#333]">

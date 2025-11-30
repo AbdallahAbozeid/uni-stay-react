@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-
+import { useNavigate } from 'react-router-dom';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("currentUser")) || null);
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 64);
@@ -25,6 +26,17 @@ export default function Navbar() {
       { name: "Help", href: "/coming-soon" },
     ];
 
+    const handleUserAction = () => {
+      if (user) {
+        // Sign out
+        localStorage.removeItem("currentUser");
+        setUser(null);
+        navigate("/");
+      } else {
+        // Sign up
+        navigate("/register");
+      }
+    };
   return (
     <header
       id="navbar"
@@ -72,14 +84,12 @@ export default function Navbar() {
           <a href="/favorites">
             <i className="fa-solid fa-heart text-us-mint text-lg hover:scale-110 transition-transform duration-150"></i>
           </a>
-          <a href="/profile">
+          <a href={user && user?.role === "student" ? "/profile" : user?.role=== "owner" ? "/owner" : user?.role ==='admin' ? "/admin-dashboard" : "/login"}>
             <i className="fa-solid fa-user text-us-mint text-lg hover:scale-110 transition-transform duration-150"></i>
           </a>
-          <a href="/register">
-            <button className="bg-us-primary text-white py-1 px-3 rounded hover:bg-us-primary/90 duration-200">
-              Sign up
+            <button className="bg-us-primary text-white py-1 px-3 rounded hover:bg-us-primary/90 duration-200 cursor-pointer" onClick={handleUserAction}>
+              {user ? "Sign out" : "Sign up"}
             </button>
-          </a>
         </div>
       </nav>
     </header>

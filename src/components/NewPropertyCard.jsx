@@ -1,10 +1,9 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import {amenityIcons} from '../assets/data'
-
+import { useFavorites } from '../context/FavoritesContext';
 export default function PropertyCard({ id, title,type,price,location,amenities,rating,image}) {
-  const[isFavorite,setIsFavorite]=useState(false);
-  
+  const { toggleFavorite, isFavorite } = useFavorites();
   return (
 
 
@@ -26,12 +25,12 @@ export default function PropertyCard({ id, title,type,price,location,amenities,r
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
-            setIsFavorite(!isFavorite);
+            toggleFavorite({ id, title, type, price, location, amenities, rating, image });
           }}
           className="absolute top-2 right-2 bg-us-cream opacity-80 hover:opacity-100 transition-all duration-300 rounded-lg size-7 flex items-center justify-center z-10"
         >
           <i
-            className={`fa-heart cursor-pointer transition-all duration-300 ${isFavorite ? "fa-solid text-us-mint" : "fa-regular text-gray-600"}`}
+            className={`fa-heart cursor-pointer transition-all duration-300 ${isFavorite(id) ? "fa-solid text-us-mint" : "fa-regular text-gray-600"}`}
           />
         </div>
       </div>

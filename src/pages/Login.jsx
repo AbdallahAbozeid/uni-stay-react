@@ -30,10 +30,13 @@ function Login() {
 
     // توجيه المستخدم حسب الدور
     if (currentUser.role === "student") {
-      navigate("/owner"); // صفحة الطالب
+      navigate("/profile"); // صفحة الطالب
     } else if (currentUser.role === "owner") {
-      navigate("/profile"); // صفحة المالك
-    } else {
+      navigate("/owner"); // صفحة المالك
+    } else if (currentUser.role === "admin") {
+      navigate("/admin-dashboard"); // صفحة المسؤول
+    } 
+    else {
       setError("Unknown role");
     }
   };

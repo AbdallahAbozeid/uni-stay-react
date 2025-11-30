@@ -78,9 +78,9 @@ function Register() {
   alert("Account created successfully!");
 
   if (role === "student") {
-    navigate("/Owner");
+    navigate("/profile");
   } else if (role === "owner") {
-    navigate("/Profile");
+    navigate("/owner");
   }
 };
 

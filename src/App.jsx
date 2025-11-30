@@ -24,6 +24,23 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 
 function App() {
+//add admin user if not exists
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const adminExists = users.some((u) => u.role === "admin");
+
+  if (!adminExists) {
+    const adminUser = {
+      fullName: "Admin User",
+      email: "admin@unistay.com",
+      phone: "000-000-0000",
+      password: "admin123",
+      role: "admin",
+      avatar: "",
+    };
+    users.push(adminUser);
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+
   const router = createBrowserRouter([
     {
       path: "/",

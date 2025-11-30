@@ -2,11 +2,11 @@ import React, { useState, useRef } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { propertiesArr } from '../assets/propertiesEgypt'
 import { amenityIcons } from '../assets/data'
-
+import { useFavorites } from '../context/FavoritesContext'
 export default function Details() {
+  const { toggleFavorite, isFavorite } = useFavorites();
   const { id } = useParams()
   const navigate = useNavigate()
-  const [isFavorite, setIsFavorite] = useState(false)
   const [bookingData, setBookingData] = useState({
     university: '',
     checkIn: '',
@@ -138,11 +138,11 @@ export default function Details() {
               {property.type}
             </div>
             <button
-              onClick={() => setIsFavorite(!isFavorite)}
+              onClick={() => toggleFavorite(property)}
               className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-us-cream opacity-90 hover:opacity-100 transition-all duration-300 rounded-lg size-8 sm:size-10 flex items-center justify-center"
             >
               <i
-                className={`${isFavorite ? "fa-solid" : "fa-regular"} fa-heart text-us-mint text-base sm:text-xl cursor-pointer transition-all duration-200`}
+                className={`${isFavorite(property.id) ? "fa-solid" : "fa-regular"} fa-heart text-us-mint text-base sm:text-xl cursor-pointer transition-all duration-200`}
               />
             </button>
           </div>

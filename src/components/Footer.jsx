@@ -82,15 +82,15 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-us-textLight/80">
               {[
-                "Help Center",
-                "Contact Us",
-                "Safety Guidelines",
-                "Terms of Service",
-                "Privacy Policy",
-              ].map((label) => (
-                <li key={label}>
-                  <a href={label=="Contact Us" ? `/contact-us` : "/coming-soon"} className="hover:text-us-textLight transition-colors">
-                    {label}
+                {text:"Help Center",url:"/coming-soon"},
+                {text:"Contact Us",url:"/contact-us"},
+                {text:"Safety Guidelines",url:"/safety-guidelines"},
+                {text:"Terms of Service",url:"/terms-of-service"},
+                {text:"Privacy Policy",url:"/privacy-policy"},
+              ].map((li,index) => (
+                <li key={index}>
+                  <a href={li.url} className="hover:text-us-textLight transition-colors">
+                    {li.text}
                   </a>
                 </li>
               ))}

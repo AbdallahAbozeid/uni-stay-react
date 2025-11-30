@@ -7,8 +7,8 @@ export default function PropertyCard({ id, title,type,price,location,amenities,r
   return (
 
 
-    <Link to={`/details/${id}`} className="block">
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden w-64 hover:shadow-xl hover:shadow-mint/60 hover:outline-8 outline-us-mint/40 transition-all duration-300 cursor-pointer">
+    <Link to={`/details/${id}`} className="block mx-auto h-full">
+    <div className="flex flex-col justify-start gap-1 bg-white rounded-2xl shadow-md overflow-hidden h-full w-64 hover:shadow-xl hover:shadow-mint/60 hover:outline-8 outline-us-mint/40 transition-all duration-300 cursor-pointer">
 
       <div className="relative">
         <img
@@ -35,8 +35,8 @@ export default function PropertyCard({ id, title,type,price,location,amenities,r
         </div>
       </div>
 
-      <div className="p-4 text-left">
-        <h3 className="font-semibold text-sm mb-1">{title}</h3>
+      <div className="p-4 text-left flex flex-col justify-start gap-1 h-full">
+        <h3 className="font-semibold text-sm mb-1 flex-1">{title}</h3>
 
         <p className="text-gray-500 text-sm flex items-center gap-1">
           <i className="fa-solid fa-location-dot text-us-mint"></i>
@@ -56,11 +56,11 @@ export default function PropertyCard({ id, title,type,price,location,amenities,r
 
         <div className="flex items-center gap-2 mt-6 text-sm">
           {amenities.map((f, idx) => (
-            <span key={idx} className='flex items-center justify-start gap-0.5 transition-all duration-200 overflow-hidden hover:overflow-visible text-sm'>
+            <span key={idx} className='flex items-center justify-start gap-0.5 transition-all duration-200 overflow-hidden hover:overflow-visible text-sm text-us-textDark/60 hover:text-us-mint'>
               <i
-                className={`fa-solid ${amenityIcons[f]} text-us-textDark/60`}
+                className={`fa-solid ${amenityIcons[f]}`}
               ></i>{" "}
-              <span className="text-xs text-us-textDark/60 truncate">
+              <span className="text-xs truncate">
                 {f.charAt(0).toUpperCase() + f.slice(1)}
               </span>
             </span>

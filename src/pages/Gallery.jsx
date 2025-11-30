@@ -40,7 +40,8 @@ export default function Gallery() {
           setMax={setMax}
           typesArr={[...new Set(propertiesArr.map(p => p.type))]}
         />
-        <div id="properties-container" className="flex flex-wrap justify-center gap-6 px-4 my-24">
+        <div id="properties-container" className="grid grid-cols-1 auto-rows-fr sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto w-fit gap-6 px-4 my-24">
+       
           {
             filtered?filtered.map((prop)=>{
               return(

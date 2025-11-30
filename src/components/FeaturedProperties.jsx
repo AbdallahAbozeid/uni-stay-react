@@ -22,7 +22,7 @@ export default function FeaturedProperties() {
       </p>
 
       {/* Cards List */}
-      <div className="flex flex-wrap justify-center gap-6 px-4">
+      <div className="grid grid-cols-1 auto-rows-fr sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  mx-auto w-fit gap-6 px-4">
         {featuredProp.map((prop) => (
           <NewPropertyCard
             key={prop.id}

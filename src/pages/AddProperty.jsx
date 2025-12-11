@@ -211,55 +211,6 @@ const AddProperty = () => {
           </div>
       </div>
       
-      {/* Footer using Accent color */}
-      <footer className="mt-16 bg-[#66869f] text-[#e6eef5] py-8 text-sm leading-relaxed w-full">
-          <div className="max-w-4xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
-              
-              {/* Column 1: Uni-Stay Info */}
-              <div>
-                  <h4 className="mb-3 text-base font-bold text-white">Uni-Stay</h4>
-                  <p className='text-[#e6eef5]'>Your trusted partner in finding the perfect university housing for a comfortable and affordable student life.</p>
-                  <div className="mt-4 flex space-x-3 text-[#d5d5d5]">
-                    <CheckCircle className="w-5 h-5 hover:text-white cursor-pointer" />
-                    <XCircle className="w-5 h-5 hover:text-white cursor-pointer" />
-                  </div>
-              </div>
-              
-              {/* Column 2: Quick Links */}
-              <div>
-                  <h4 className="mb-3 text-base font-bold text-white">Quick Links</h4>
-                  <ul className="list-none p-0 space-y-2 text-[#e6eef5]">
-                      <li className='hover:text-white cursor-pointer'>For Landlords</li>
-                      <li className='hover:text-white cursor-pointer'>Student Resources</li>
-                      <li className='hover:text-white cursor-pointer'>Blog</li>
-                  </ul>
-              </div>
-              
-              {/* Column 3: Support */}
-              <div>
-                  <h4 className="mb-3 text-base font-bold text-white">Support</h4>
-                  <ul className="list-none p-0 space-y-2 text-[#e6eef5]">
-                      <li className='hover:text-white cursor-pointer'>Help Center</li>
-                      <li className='hover:text-white cursor-pointer'>Contact Us</li>
-                      <li className='hover:text-white cursor-pointer'>Safety Guidelines</li>
-                      <li className='hover:text-white cursor-pointer'>Terms of Service</li>
-                  </ul>
-              </div>
-              
-              {/* Column 4: Contact Info */}
-              <div>
-                  <h4 className="mb-3 text-base font-bold text-white">Contact Info</h4>
-                  <p className='text-[#e6eef5]'>hello@uni-stay.com</p>
-                  <p className='text-[#e6eef5]'>+(123) 123-4567</p>
-                  <p className='text-[#e6eef5]'>123 Main Street, Modern District, CA 94035</p>
-              </div>
-
-          </div>
-          <div className="text-center mt-8 pt-4 border-t border-[#527086] mx-auto max-w-4xl px-4 text-[#e6eef5]">
-            © 2025 uni-stay. All rights reserved.
-          </div>
-      </footer>
-
     </div>
   );
 };

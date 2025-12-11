@@ -16,7 +16,7 @@ export default function FilterBar({location,setLoctaion,type,setType,min,setMin,
           onChange={(e)=>{setLoctaion(e.target.value)}}
           className="rounded-2xl border-2 border-textDark bg-textLight placeholder:text-textDark/80 text-textDark focus:outline-none focus:border-mint ps-8 pe-2 h-10 w-full block leading-10"
         />
-        <i className="fa-solid fa-location-dot text-base text-textDark absolute bottom-[7px] left-2"></i>
+        <i className="fa-solid fa-location-dot text-base text-textDark absolute bottom-3 left-2"></i>
       </section>
       <section className="relative mx-auto w-full">
         <h3 className="capitalize text-textLight font-semibold ms-2 mb-2">
@@ -29,7 +29,7 @@ export default function FilterBar({location,setLoctaion,type,setType,min,setMin,
           placeholder="DD/MM/YYYY"
           className="px-6 appearance-none rounded-2xl border-2 border-textDark bg-textLight placeholder:text-textDark/80 text-textDark placeholder:text-textLight/60 focus:outline-none focus:border-mint ps-8 pe-2 h-10 w-full block leading-10"
         />
-        <i className="fa-solid fa-calendar-days text-base text-textDark absolute bottom-[7px] left-2"></i>
+        <i className="fa-solid fa-calendar-days text-base text-textDark absolute bottom-3 left-2"></i>
       </section>
       <section className="relative mx-auto w-full">
         <h3 className="capitalize text-textLight font-semibold ms-2 mb-2">
@@ -49,7 +49,7 @@ export default function FilterBar({location,setLoctaion,type,setType,min,setMin,
             );
           })}
         </select>
-        <i className="fa-solid fa-angle-down text-base text-textDark absolute bottom-[7px] right-2 pointer-events-none"></i>
+        <i className="fa-solid fa-angle-down text-base text-textDark absolute bottom-3 right-2 pointer-events-none"></i>
       </section>
       <section className="relative mx-auto w-full">
         <h3 className="capitalize text-textLight font-semibold ms-2 mb-2">
@@ -74,8 +74,8 @@ export default function FilterBar({location,setLoctaion,type,setType,min,setMin,
             value={max}
             onChange={(e)=>{setMax(e.target.value)}}
           />
-          <i className="fa-solid fa-angle-down text-base text-textDark absolute bottom-[7px] right-1/2 -translate-x-2"></i>
-          <i className="fa-solid  fa-angle-up text-base text-textDark absolute bottom-[7px] right-2"></i>
+          <i className="fa-solid fa-angle-down text-base text-textDark absolute bottom-3 right-1/2 -translate-x-2"></i>
+          <i className="fa-solid  fa-angle-up text-base text-textDark absolute bottom-3 right-2"></i>
         </div>
       </section>
       {/* <button

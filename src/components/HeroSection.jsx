@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export default function HeroSection() {
   return (
@@ -20,16 +20,13 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-sm/[1.5] sm:text-base/[1.5] md:text-lg/[1.5] text-us-textLight/80 mb-10">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis
-            ex officia temporibus quibusdam dolorum modi nam cupiditate soluta
-            aliquam cumque. Quam eveniet consequuntur adipisci harum, minima
-            nulla architecto est quas.
+            Discover comfortable, affordable housing near your campus. Join
+            thousands of students who found their perfect home.
           </p>
         </section>
 
         {/* FILTER SECTION */}
         <section className="filter-section flex gap-8 flex-col lg:flex-row flex-wrap lg-flex-nowrap justify-between items-center bg-us-cream/10 backdrop-blur-md rounded-lg p-8 mx-auto lg:ms-20 w-[320px] md:w-[400px] lg:w-fit shadow-sm">
-
           {/* LOCATION */}
           <section className="relative">
             <p className="capitalize text-us-textLight font-semibold ms-2 mb-2">

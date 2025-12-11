@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Owner() {
   const [user, setUser] = useState({
@@ -90,12 +91,15 @@ useEffect(() => {
             <button className="flex items-center gap-3 w-full text-left bg-[#c47b5a] text-white px-4 py-2 rounded-lg">
               Profile
             </button>
+            
             <button className="flex items-center gap-3 w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100">
                Favorites <span className="ml-auto bg-green-500 text-white text-xs px-2 rounded-full">3</span>
             </button>
+           <Link to="/landlord-dashboard">
             <button className="flex items-center gap-3 w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100">
-               Notifications <span className="ml-auto bg-red-500 text-white text-xs px-2 rounded-full">3</span>
+               Landlord Dashboard <span className="ml-auto bg-red-500 text-white text-xs px-2 rounded-full">3</span>
             </button>
+             </Link>
             <button className="flex items-center gap-3 w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100">
                Settings
             </button>
@@ -128,12 +132,12 @@ useEffect(() => {
             <p className="text-sm text-gray-500 mb-6">Your account details and contact information</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div className="bg-[#fdf6e3] p-4 rounded-lg shadow-sm hover:shadow-md transition duration-200">
+              <div className="bg-us-cream p-4 rounded-lg shadow-sm hover:shadow-md transition duration-200">
                 <p className="text-gray-700"><span className="font-medium">Full Name:</span> {user.name}</p>
                 <p className="text-gray-700"><span className="font-medium">Email:</span> {user.email}</p>
                 <p className="text-gray-700"><span className="font-medium">Address:</span> {user.address}</p>
               </div>
-              <div className="bg-[#fdf6e3] p-4 rounded-lg shadow-sm hover:shadow-md transition duration-200">
+              <div className="bg-us-cream p-4 rounded-lg shadow-sm hover:shadow-md transition duration-200">
                 <p className="text-gray-700"><span className="font-medium">University:</span> {user.university}</p>
                 <p className="text-gray-700"><span className="font-medium">Phone:</span> {user.phone}</p>
               </div>
@@ -149,7 +153,7 @@ useEffect(() => {
             </div>
 
             {/* Contact Details */}
-            <div className="bg-[#fdf6e3] p-4 rounded-lg shadow-inner">
+            <div className="bg-us-cream p-4 rounded-lg shadow-inner">
               <p className="text-gray-700"><span className="font-medium">Email:</span> {user.email}</p>
               <p className="text-gray-700"><span className="font-medium">Phone:</span> {user.phone}</p>
               <p className="text-gray-700"><span className="font-medium">Address:</span> {user.address}</p>

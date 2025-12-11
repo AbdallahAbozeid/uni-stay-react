@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function OwnerDashboard() {
   const [business, setBusiness] = useState({
@@ -93,9 +94,13 @@ export default function OwnerDashboard() {
             >
               <i className="fas fa-user"></i> My Profile
             </button>
-            <button className="flex items-center gap-3 px-4 py-2 rounded-md w-full hover:bg-[#f3e5dc] transition">
-              <i className="fas fa-bell text-[#c47c61]"></i> Notifications
-            </button>
+            <Link
+  to="/landlord-dashboard"
+  className="flex items-center gap-3 px-4 py-2 rounded-md w-full hover:bg-[#f3e5dc] transition"
+>
+  <i className="fas fa-bell text-[#c47c61]"></i>
+  Dashboard
+</Link>
             <button className="flex items-center gap-3 px-4 py-2 rounded-md w-full hover:bg-[#f3e5dc] transition">
               <i className="fas fa-gear text-[#c47c61]"></i> Settings
             </button>

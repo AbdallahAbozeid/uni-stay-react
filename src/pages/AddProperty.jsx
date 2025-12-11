@@ -80,23 +80,9 @@ const AddProperty = () => {
   return (
     <div className="min-h-screen bg-[#fdf6e3] font-sans text-left">
       
-      {/* Header */}
-      <div className="w-full px-4 bg-[#ffffff] shadow-md">
-          <header className="flex justify-between items-center py-4 border-b border-gray-200 max-w-7xl mx-auto">
-              <div className="flex items-center">
-                <span className="text-2xl font-extrabold text-[#c8846c]">uni-stay</span>
-              </div>
-              <div className="flex items-center space-x-3 text-sm">
-                {/* Dashboard button using Accent color */}
-                <span className="px-4 py-2 bg-[#66869f] text-white rounded-lg cursor-pointer hover:bg-[#527086] transition duration-150 font-semibold shadow-sm">Dashboard</span>
-                {/* Logout button using Primary color for consistency */}
-                <span className="px-4 py-2 bg-[#c8846c] text-white rounded-lg cursor-pointer hover:bg-[#b0745b] transition duration-150 font-semibold shadow-sm">Logout</span>
-              </div>
-          </header>
-      </div>
-
+    
       {/* Main Content */}
-      <div className="w-full mt-10 px-4 max-w-4xl mx-auto pb-16">
+      <div className="w-full py-16 px-4 max-w-4xl mx-auto">
           
           <div className="bg-white p-6 sm:p-8 rounded-xl shadow-2xl border border-gray-100">
             <h2 className="text-center text-3xl font-extrabold mb-10 text-[#333333]">
@@ -187,13 +173,15 @@ const AddProperty = () => {
 
 
               {/* Submit and Cancel Buttons */}
-              <div className="flex justify-center mt-10 pt-6 border-t border-gray-100">
+              <div className="flex justify-center gap-4 mt-10 pt-6 border-t border-gray-100">
                 <button type="submit" className={buttonPrimaryClasses}>
                   Save Property
                 </button>
+                <a href="/landlord-dashboard">
                 <button type="button" onClick={handleCancel} className={buttonSecondaryClasses}>
                   Cancel
                 </button>
+                </a>
               </div>
             </form>
 
